@@ -788,10 +788,78 @@ span.mask{
 	/*背景画像の設定*/
 	background-size: cover;
 }
-#container,
+#container2,
 #footer{
 	position: relative;/*#header-imgよりも配置を上にするためにrelativeをつける*/
 	z-index: 3;/*#header-imgよりもz-indexの値を大きな数値にして上に表示*/
     background:#f8f9fa;
 
+}
+/*==================================================
+アコーディオンのためのcss
+===================================*/
+/*アコーディオン全体*/
+.accordion-area {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.accordion-area li {
+	margin: 10px 0;
+}
+
+.accordion-area section {
+	border-bottom: 1px solid #ccc;
+}
+
+/*アコーディオンタイトル*/
+.title {
+	position: relative;
+	/*+マークの位置基準とするためrelative指定*/
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: normal;
+	padding: 20px 50px 20px 20px;
+	transition: all .5s ease;
+}
+
+/*アイコンの矢印*/
+.title::before,
+.title::after {
+	position: absolute;
+	content: '';
+}
+
+.title::before {
+	top: 25%;
+	right: 15px;
+	width: 25px;
+	height: 25px;
+	background-color: #cbcaca;
+	border-radius: 50%;
+}
+
+.title::after {
+	top: 32%;
+	right: 23px;
+	width: 9px;
+	height: 9px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	transform: rotate(135deg);
+}
+
+/*　closeというクラスがついたら形状変化　*/
+
+.title.close::after {
+	top: 35%;
+	transform: rotate(-45deg);
+}
+
+/*アコーディオンで現れるエリア*/
+.box {
+	display: none;
+	/*はじめは非表示*/
+	background: #f3f3f3;
+	padding: 20px;
 }
